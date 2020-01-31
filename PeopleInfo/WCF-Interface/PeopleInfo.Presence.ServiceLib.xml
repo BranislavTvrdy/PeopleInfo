@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PeopleInfo.Presence.ServiceLib</name>
+    </assembly>
+    <members>
+        <member name="T:PeopleInfo.Presence.ServiceLib.IPresenceService">
+            <summary>
+            Rozhranie pre WCF sluzbu zistujucu pritomnost ludi z dochadzky.
+            </summary>
+        </member>
+        <member name="M:PeopleInfo.Presence.ServiceLib.IPresenceService.GetPersonPresence(PeopleInfo.Presence.ServiceLib.PersonRequest)">
+            <summary>
+            Vrati informaciu o pritomnosti danej osoby.
+            </summary>
+            <param name="person">Osoba s povinne vyplnenym menom a priezviskom, ktorej sa ma zistit pritomnost.</param>
+            <returns></returns>
+        </member>
+        <member name="M:PeopleInfo.Presence.ServiceLib.IPresenceService.GetPeoplePresence(PeopleInfo.Presence.ServiceLib.PersonRequest[])">
+            <summary>
+            Vrati informaciu o pritomnosti viacerych osob.
+            </summary>
+            <param name="people">Zoznam ludi, ktorych pritomnost sa bude zistovat.</param>
+            <returns></returns>
+        </member>
+        <member name="T:PeopleInfo.Presence.ServiceLib.PersonRequest">
+            <summary>
+            Vstupna poziadavka - povinne meno a priezvisko, podla ktorych sa zisti pritomnost osoby.
+            </summary>
+        </member>
+        <member name="P:PeopleInfo.Presence.ServiceLib.PersonRequest.FirstName">
+            <summary>
+            Meno, podla ktoreho sa zisti pritomnost z dochadzky.
+            </summary>
+        </member>
+        <member name="P:PeopleInfo.Presence.ServiceLib.PersonRequest.LastName">
+            <summary>
+            Priezvisko, podla ktoreho sa zisti pritomnost z dochadzky.
+            </summary>
+        </member>
+        <member name="T:PeopleInfo.Presence.ServiceLib.PersonStatus">
+            <summary>
+            Objekt reprezentujuci vysledok zistenia stavu o pritomnosti osoby. 
+            </summary>
+        </member>
+        <member name="P:PeopleInfo.Presence.ServiceLib.PersonStatus.FirstName">
+            <summary>
+            Meno.
+            </summary>
+        </member>
+        <member name="P:PeopleInfo.Presence.ServiceLib.PersonStatus.LastName">
+            <summary>
+            Priezvisko.
+            </summary>
+        </member>
+        <member name="P:PeopleInfo.Presence.ServiceLib.PersonStatus.IsPresent">
+            <summary>
+            Pritomnost zamestnanca - true (pritomny), false (nepritomny), null (neda sa zistit).
+            </summary>
+        </member>
+        <member name="P:PeopleInfo.Presence.ServiceLib.PersonStatus.Type">
+            <summary>
+            Blizsia informacia o pritomnosti zamestnanca.
+            </summary>
+        </member>
+        <member name="T:PeopleInfo.Presence.ServiceLib.PresenceType">
+            <summary>
+            Stav pritomnosti alebo nepritomnosti.
+            </summary>
+        </member>
+        <member name="F:PeopleInfo.Presence.ServiceLib.PresenceType.Unknown">
+            <summary>
+            Neznama pritomnost.
+            </summary>
+        </member>
+        <member name="F:PeopleInfo.Presence.ServiceLib.PresenceType.Present">
+            <summary>
+            Pritomny.
+            </summary>
+        </member>
+        <member name="F:PeopleInfo.Presence.ServiceLib.PresenceType.Absent">
+            <summary>
+            Nepritomny.
+            </summary>
+        </member>
+        <member name="F:PeopleInfo.Presence.ServiceLib.PresenceType.BusinesTrip">
+            <summary>
+            Nepritomny - sluzobna cesta.
+            </summary>
+        </member>
+        <member name="F:PeopleInfo.Presence.ServiceLib.PresenceType.Other">
+            <summary>
+            Iny stav pritomnosti.
+            </summary>
+        </member>
+    </members>
+</doc>

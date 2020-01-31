@@ -1,0 +1,44 @@
+﻿<Window x:Class="PeopleInfo.VievewApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PeopleInfo.VievewApp"
+        mc:Ignorable="d"
+        Title="People Info Viewer" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="36*"/>-->
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="400*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Label Content="Room:" Margin="10,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="44"/>
+            <ComboBox Margin="59,15,0,0" VerticalAlignment="Top" Name="ComboBoxRoom" SelectionChanged="ComboBoxRoom_SelectionChanged" HorizontalAlignment="Left" Width="150"/>
+            <Label Content="Department:" Margin="225,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76"/>
+            <ComboBox Margin="304,15,0,0" VerticalAlignment="Top" Name="ComboBoxDepartment" SelectionChanged="ComboBoxDepartment_SelectionChanged" HorizontalAlignment="Left" Width="150" />
+            <Label Content="Search:" Margin="459,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="48"/>
+            <TextBox Name="TextBoxSearch" Height="23" Margin="507,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" KeyUp="TextBoxSearch_KeyUp" HorizontalAlignment="Left" Width="275"/>
+        </Grid>
+
+        <DataGrid Name="DataGridFilteredItems" Margin="10,31,5,10" Grid.Row="1"  AutoGenerateColumns="False" 
+                  RowHeight="20" ColumnWidth="Auto" GridLinesVisibility="None" HeadersVisibility="Column" Background="White" 
+                  IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" SelectionMode="Single" 
+                  SelectedItem="DataGridFilteredItems_OnSelected" DataGridCell.Selected="DataGridFilteredItems_OnSelected">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="150*" Header="Title before" Binding="{Binding Path=TitleBefore}"/>
+                <DataGridTextColumn Width="150*" Header="Name" Binding="{Binding Path=FullName}"/>
+                <DataGridTextColumn Width="150*" Header="Title after" Binding="{Binding Path=TitleAfter}"/>
+                <DataGridTextColumn Width="150*" Header="Job position" Binding="{Binding Path=JobPosition}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="ButtonGenerator" Content="Show contact..." Margin="8,0,10,29" Click="ButtonGenerator_Click" Grid.Row="1" Grid.Column="1" Height="21" VerticalAlignment="Bottom"/>
+        <Label Name="LabCount" Content="Count: " Margin="3,31,9,0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top"/>
+        <Image Name="ImageState" Height="128" Margin="6,0,9,120" Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <Label Name="LState" Content="State" Margin="40,0,40,90" Grid.Row="1" VerticalAlignment="Bottom" Grid.Column="1"/>
+    </Grid>
+</Window>
